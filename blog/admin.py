@@ -2,7 +2,7 @@ from django.contrib import admin
 from ckeditor.widgets import CKEditorWidget
 from django import forms
 import csv
-from .models import Post, Comment,Reply,Student,districts,Member
+from .models import Post, Comment,Reply,Student,districts,Member,Document,Link,Work
 from django.http import HttpResponse
 
 
@@ -14,12 +14,31 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ('title', 'body', 'short_desc')
     date_hierarchy = 'post_date'
 
+@admin.register(Document)
+class DocumentAdmin(admin.ModelAdmin):
+    fields = ('fname', 'file','status','category')
+    list_display = ('fname','category','file','status')
+    list_filter = ('status',)
+
+@admin.register(Link)
+class LinkAdmin(admin.ModelAdmin):
+    fields = ('linkname', 'name','status')
+    list_display = ('linkname','name','status')
+    list_filter = ('status',)   
+
+@admin.register(Work)
+class WorkAdmin(admin.ModelAdmin):
+    fields = ('title', 'venue','status','district','sdate','info','wtype','fdate')
+    list_display = ('title','wtype','venue','status','info')
+    list_filter = ('status',)
+   
+
 @admin.register(Member)
 class MemberAdmin(admin.ModelAdmin):
     actions=['download_csv']
-    fields = ('name', 'address','phone', 'district','position','status','email','department','invigilation','organisation')
-    list_display = ('name', 'address','phone','position','status')
-    list_filter = ('joined','status','position')
+    fields = ('name','rank', 'address','phone', 'district','position','status','email','department','invigilation','organisation')
+    list_display = ('rank','name', 'address','phone','position','status')
+    list_filter = ('rank','joined','status','position')
     search_fields = ('name', 'phone', 'email')
     def download_csv(self, request, queryset):
         options = districts

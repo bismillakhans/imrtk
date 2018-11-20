@@ -58,9 +58,20 @@
 
                     </li>
 
-                    <li>
-                        <a href="{% url "blog:articles" %}">Articles</a>
+                    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Resources
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url "blog:articles" %}">Articles</a></li>
+          <li>
+                        <a href="{% url "blog:fileview" %}">Files and Resources</a>
                     </li>
+          <li>
+                        <a href="{% url "blog:articles" %}">Publications</a>
+                    </li>
+        </ul>
+      </li>
+                  
                     <li>
                         <a href="{% url "blog:about" %}">About</a>
                     </li>
@@ -69,9 +80,15 @@
                    <li>
                         <a href="{% url "blog:members" %}">Members</a>
                     </li>
-                    <li>
-                        <a href="{% url "blog:fileupload" %}">fileuploads</a>
+                     <li>
+                        <a href="{% url "blog:works" %}">WorkShops</a>
                     </li>
+
+                  
+                   <li>
+                        <a href="{% url "blog:members" %}">Gallery</a>
+                    </li>
+                    
 
                 </ul>
 
@@ -105,7 +122,7 @@
 				<div class="panel-body">
 					<p><b>MATHEMATICS ENRICHMENT
 PROGRAMME FOR GRADUATE
-STUDENTS -<a href="/">November -9-10,2018</b></a></p>
+STUDENTS -<a href="/">November -23-24,2018</b></a></p>
 					<div class="btn-group" role="group">
 			  <a class="btn btn-danger" href="{% url "blog:regstudent" %}" >
                     Register
@@ -181,15 +198,13 @@ STUDENTS -<a href="/">November -9-10,2018</b></a></p>
 
 
 			<div class="panel panel-default">
+				<hr>
 				<div class="panel-heading">
-					<h1 class="panel-title"><span class="glyphicon glyphicon-random"></span> Useful Links</h1>
+					<h1 class="panel-title"><span class="glyphicon glyphicon-random"></span> Association Links</h1>
 				</div>
 				<div class="list-group">
-					<a href="#" class="list-group-item">Resource Taxing</a>
-					<a href="#" class="list-group-item">Premier Niche Markets</a>
-					<a href="#" class="list-group-item">Dynamically Innovate</a>
-					<a href="#" class="list-group-item">Objectively Innovate</a>
-					<a href="#" class="list-group-item">Proactively Envisioned</a>
+					<a href="dsdas" class="list-group-item">fsd</a>
+					
 				</div>
 			</div>
 			<!-- Text Panel -->
@@ -271,51 +286,48 @@ STUDENTS -<a href="/">November -9-10,2018</b></a></p>
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-3 footer-blurb-item">
-						<h3><span class="glyphicon glyphicon-text-size"></span> Dynamic</h3>
-						<p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.</p>
-						<p><a class="btn btn-default" href="#">Procrastinate</a></p>
+						<h3><span class="glyphicon glyphicon-text-size"></span> Life Members</h3>
+						<p>All the signatories of this memorandum of association shall be life members. Maximum number of life members is limited to 20. Any person who desires to become a life member of the institute shall make an application which shall be supported by two members.</p>
+      <h4 data-toggle="collapse" data-target="#con1" class="btn btn-default">Readmore</h4>
+      <div id="con1" class="collapse">
+      					<p>
+						 A new life member will be inducted with the endorsement of his application by a two-third majority of the governing body. Any person having outstanding contribution to any discipline shall be considered for the life membership by the Governing Body.</p>
+						</div>
 					</div>
 					<div class="col-sm-3 footer-blurb-item">
-						<h3><span class="glyphicon glyphicon-wrench"></span> Efficient</h3>
-						<p>Dramatically maintain clicks-and-mortar solutions without functional solutions. Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. </p>
-						<p><a class="btn btn-default" href="#">Unleash</a></p>
-					</div>
-					<div class="col-sm-3 footer-blurb-item">
-						<h3><span class="glyphicon glyphicon-paperclip"></span> Complete</h3>
-						<p>Professionally cultivate one-to-one customer service with robust ideas. Completely synergize resource taxing relationships via premier niche markets. Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
-						<p><a class="btn btn-default" href="#">Complete</a></p>
-					</div>
-					<div class="col-sm-3 footer-blurb-item">
+						<h3><span class="glyphicon glyphicon-wrench"></span> Associate Members</h3>
+						<p>Anyone who is engaged in research , teaching or equivalent activities in math- ematics and related sciences can make an application for associate membership in the Institute. The governing body shall consider such applications and on its approval the person shall be admitted as an associate member.</p>
+						  <h4 data-toggle="collapse" data-target="#con2" class="btn btn-default">Readmore</h4>
+      <div id="con2" class="collapse">
+      			<p>
 
-						<!-- Thumbnails
-						<h3><span class="glyphicon glyphicon-camera"></span> Gallery</h3>
-							<div class="row">
-								<div class="col-xs-6">
-									<a href="#" class="thumbnail">
-										<img src="holder.js/110x80" alt="">
-									</a>
-								</div>
-								<div class="col-xs-6">
-									<a href="#" class="thumbnail">
-										<img src="holder.js/110x80" alt="">
-									</a>
-								</div>
-								<div class="col-xs-6">
-									<a href="#" class="thumbnail">
-										<img src="holder.js/110x80" alt="">
-									</a>
-								</div>
-								<div class="col-xs-6">
-									<a href="#" class="thumbnail">
-										<img src="holder.js/110x80" alt="">
-									</a>
-								</div>
-							</div>
-
+						 The term of the associate membership will be decided by the Governing Body from time to time.</p>
+						</div>
 					</div>
+					<div class="col-sm-3 footer-blurb-item">
+						<h3><span class="glyphicon glyphicon-paperclip"></span> Membership Fees</h3>
+						<p>No membership fee for honorary members. At the time of admission life members and associate members have to remit the membership fee prescribed by the general body from time to time. All Members except Honorary members have the right to vote, if present, at the general body meeting.
+						</p>
+						  <h4 data-toggle="collapse" data-target="#con3" class="btn btn-default">Readmore</h4>
+      <div id="con3" class="collapse">
+      	<p>
+
+						 The Institute shall not distribute any part of its income or profit as dividend, gift or bonus or in any other way among its members, provided nevertheless that office bearers, workers and other employees shall not be debarred from receiving remuneration or participating in grants because of their also being members of the Institute</p>
+					</div>
+					</div>
+					<div class="col-sm-3 footer-blurb-item">
+						<h3><span class="glyphicon glyphicon-user"></span> Membership</h3>
+						<p>The membership of the Institute shall not be restricted for sex, nationality, race, religion, caste or creed. The Institute shall have the following classes of members 
+											<p>
+							1. Honorary Members,<br />2. Life Members,<br />3. Associate Members
+							
+						</p>
+						
+					</div>
+					
 
 				</div>
-				.row -->
+				
 			</div>
         </div>
 
@@ -325,7 +337,7 @@ STUDENTS -<a href="/">November -9-10,2018</b></a></p>
         <div class="small-print">
         	<div class="container">
         		<p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
-        		<p>Copyright &copy; imartkerala.com 2018 </p>
+        		<p>Copyright &copy; imrtkerala.com 2018 </p>
         	</div>
         </div>
     </center>

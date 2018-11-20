@@ -31,6 +31,17 @@ positions = (
     ('Treasurer','Treasurer'),
     ('Member','Member'),
     )
+wtypes = (
+    ('Workshops','Workshops'),
+    ('Conferences','Conferences'),
+    ('Seminars','Seminars'),
+    )
+categories = (
+    ('Statitics','Statitics'),
+    ('Probabilty','Probabilty'),
+    ('Algebra','Relational Algebra'),
+    ('Geometry','Geometry'),
+    )
 class Post(models.Model):
     title = models.CharField(max_length=70)
     slug = AutoSlugField(populate_from='title', overwrite=True)
@@ -52,13 +63,36 @@ class Post(models.Model):
 
 class Document(models.Model):
   file = models.FileField('Document', upload_to='mydocs/')
+  fname =models.CharField(max_length=70)
+  status=models.BooleanField(default=True,verbose_name="Status")
+  category = models.CharField(
+        max_length = 15,
+        choices = categories,
+    )
+    
+ 
+class Link(models.Model):
+  linkname = models.CharField(max_length=1000)
+  name =models.CharField(max_length=70)
+  status=models.BooleanField(default=True,verbose_name="Status")
 
-  @property
-  def filename(self):
-     name = self.file.name.split("/")[1].replace('_',' ').replace('-',' ')
-     return name
-  def get_absolute_url(self):
-     return reverse('blog:document-detail', kwargs={'pk': self.pk})
+class Work(models.Model):
+  title=models.CharField(max_length=70)
+  venue =models.CharField(max_length=70)
+  status=models.BooleanField(default=True,verbose_name="Status")
+  district = models.CharField(
+        max_length = 15,
+        choices = districts,
+    )
+  sdate=models.DateTimeField()    
+  info = models.TextField()
+  fdate=models.DateField()
+  wtype = models.CharField(
+        max_length = 15,
+        choices = wtypes,
+    )
+
+
 
 
 class Comment(models.Model):
@@ -100,6 +134,7 @@ class Student(models.Model):
 
 class Member(models.Model):
     name = models.CharField(max_length=100)
+    rank =models.IntegerField(default=100)
     district = models.CharField(
         max_length = 15,
         choices = districts,

@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
 from .forms import CommentForm, ReplyForm
-from .models import Post, Comment, Reply,Student,Document,Member
+from .models import Post, Comment, Reply,Student,Document,Member,Link,Work
 
 
 class BlogListView(ListView):
@@ -21,8 +21,26 @@ class MemberListView(ListView):
     template_name = "blog/members.html"
     context_object_name = 'members'
     queryset = Member.objects.filter(status=True)
-    ordering = ['joined',]
+    ordering = ['rank',]
 
+class DocumentListView(ListView):
+    model = Document
+    template_name = "blog/document.html"
+    context_object_name = 'docs'
+    queryset = Document.objects.filter(status=True)
+
+class LinkListView(ListView):
+    model = Link
+    template_name = "blog/links.html"
+    context_object_name = 'links'
+    queryset = Link.objects.filter(status=True)
+
+class WorkListView(ListView):
+    model = Work
+    template_name = "blog/works.html"
+    context_object_name = 'works'
+    queryset = Work.objects.filter(status=True)
+    
 
 class BlogRegView(CreateView):
     model = Post
@@ -47,17 +65,6 @@ def index(request):
 class RegSuccess(TemplateView):
     template_name = "blog/reg_success.html"
 
-class DocumentCreate(CreateView):
-   model = Document
-   fields = ['file']
-
-   def form_valid(self, form):
-     obj = form.save(commit=False)
-     if self.request.FILES:
-        for f in self.request.FILES.getlist('file'):
-            obj = self.model.objects.create(file=f)
-
-     return super(DocumentCreate, self).form_valid(form)
 
 class PostRegSuccess(TemplateView):
     template_name = "blog/post_reg_success.html"

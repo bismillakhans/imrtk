@@ -12,10 +12,13 @@ urlpatterns = [
     path('regstudent/', views.RegisterStudent.as_view(), name='regstudent'),
     path('reg_success/', views.RegSuccess.as_view(), name='reg_successview'),
     path('postreg/', views.BlogRegView.as_view(), name='postreg'),
-    path('fileupload/', views.DocumentCreate.as_view(), name='fileupload'),
+    path('fileview/', views.DocumentListView.as_view(), name='fileview'),
     path('post_reg_success/', views.PostRegSuccess.as_view(), name='post_reg_success'),
     path('members/', views.MemberListView.as_view(), name='members'),
     path('', views.index, name='index'),
+    path('links/',views.LinkListView.as_view(),name='links'),
+    path('works/',views.WorkListView.as_view(),name='works'),
+
 
 
 ]
