@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}"{{ query|truncatechars:10 }}" - IMRT{% endblock %}
+{% block head %}
+    <meta property="og:site_name" content="imartkerala">
+    <meta property="og:image" content="">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:title" content="searching results {{ query }}">
+{% endblock %}
+{% block main %}
+<section>
+    <div>
+        <div class="row">
+           
+            <div class="col-xl-7 col-lg-9 col-md-9 col-sm-12">
+                {% if posts %}
+                <div class="container">
+                    <h1 class="margin-top">Results Found... <span class="text-primary">
+                            "{{ query|truncatechars:20 }}"</span></h1>
+                        <hr>
+                </div>
+                {% endif %}
+                {% for post in posts %}
+                <div class="container">
+                    <article class="margin-top margin-bottom">
+                        <div class="card">
+                            <div class="card-header">
+                                <a href="{{ post.get_absolute_url }}" class="link-color">
+                                    <h2>{{ post.title }}</h2>
+                                </a>
+                            </div>
+                            <div class="card-body justify-text">
+                                <p class="card-text">{{ post.short_desc }}</p>
+                                <p><small>Posted Date {{ post.post_date }} - {{ post.comment.all.count }} Comments
+                                    </small></p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                {% empty %}
+                <div class="margin-top"><h1>Sorry No Resultes Found<span class="text-primary">
+                        "{{ query|truncatechars:30 }}"</span>
+                    </h1>
+                    </div>
+                        <p><a href="/">Back To Home</a></p>
+                {% endfor %}
+            </div>
+        </div>
+</section>
+{% endblock %}

@@ -1,0 +1,122 @@
+from django.db import models
+from django.shortcuts import reverse
+from django.contrib.auth.models import User 
+
+from taggit.managers import TaggableManager
+from ckeditor.fields import RichTextField
+from django_extensions.db.fields import AutoSlugField, ModificationDateTimeField
+
+
+districts = (
+    ('alp','Alappuzha'),
+    ('ekm','Ernakulam'),
+    ('idk','Idukki'),
+    ('knr','Kannur'),
+    ('ksr','Kasaragod'),
+    ('kol','Kollam'),
+    ('ktm','Kottayam'),
+    ('koz','Kozhikode'),
+    ('mpm','Malappuram'),
+    ('pkd','Palakkad'),
+    ('ptm','Pathanamthitta'),
+    ('tvm','Thiruvananthapuram'),
+    ('tcr','Thrissur'),
+    ('wnd','Wayanad'),
+)
+positions = (
+    ('Director','Director'),
+    ('Chairman','Chairman'),
+    ('Associate Director','Associate Director'),
+    ('Secretary','Secretary'),
+    ('Treasurer','Treasurer'),
+    ('Member','Member'),
+    )
+class Post(models.Model):
+    title = models.CharField(max_length=70)
+    slug = AutoSlugField(populate_from='title', overwrite=True)
+    tags = TaggableManager()
+    post_date = models.DateField(auto_now_add=True)
+    post_update = ModificationDateTimeField()
+    short_desc = models.TextField(max_length=250)
+    img = models.ImageField(upload_to='img',blank=True)
+    status = models.BooleanField(default=False, verbose_name="Approve Post")
+    body = RichTextField()
+    
+    
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog:post', args=[self.post_date.year, self.post_date.month, self.slug])
+
+class Document(models.Model):
+  file = models.FileField('Document', upload_to='mydocs/')
+
+  @property
+  def filename(self):
+     name = self.file.name.split("/")[1].replace('_',' ').replace('-',' ')
+     return name
+  def get_absolute_url(self):
+     return reverse('blog:document-detail', kwargs={'pk': self.pk})
+
+
+class Comment(models.Model):
+    fk_post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comment')
+    comment = models.TextField(max_length=1000)
+    comment_date = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.comment
+
+
+class Reply(models.Model):
+    fk_comment = models.ForeignKey(
+        Comment, on_delete=models.CASCADE, related_name='reply')
+    reply = models.TextField(max_length=1000)
+    reply_date = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.reply
+
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    district = models.CharField(
+        max_length = 15,
+        choices = districts,
+    )
+    phone = models.CharField(max_length=10)
+    email = models.EmailField(max_length=70,blank=True)
+    organisation = models.CharField(max_length=250, verbose_name="Organization / Institution")
+    address = models.TextField()
+    joined = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+class Member(models.Model):
+    name = models.CharField(max_length=100)
+    district = models.CharField(
+        max_length = 15,
+        choices = districts,
+    )
+    position = models.CharField(
+        max_length = 15,
+        choices = positions,
+    )
+    invigilation=models.CharField(max_length=250, verbose_name="Invigilation ")
+    phone = models.CharField(max_length=10)
+    email = models.EmailField(max_length=70,blank=True)
+    organisation = models.CharField(max_length=250, verbose_name="Organization / Institution")
+    department = models.CharField(max_length=250, verbose_name="Department ")
+    address = models.TextField()
+    status = models.BooleanField(default=True, verbose_name="Status")
+    joined = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name    
+

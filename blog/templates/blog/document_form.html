@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block main %}
+<section>
+    <div>
+        <div class="row">
+           
+            <div class="col-xl-7 col-lg-9 col-md-9 col-sm-12">
+              <h2>upload files</h2>
+<form method="post" enctype="multipart/form-data" action="">{% csrf_token %}
+ {{ form.file }}
+ <input type="submit" value="upload" />
+
+</form>
+  <script>
+ 
+
+    window.onload = function() {
+    $('#id_file').attr("multiple","true");
+
+    
+
+  }
+ </script>
+</div>
+</div>
+</div>
+{% endblock %}

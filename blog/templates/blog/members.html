@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta property="og:site_name" content="imartkerala">
+    <meta property="og:image" content="">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:title" content="members IMRT {{ query }}">
+{% endblock %}
+{% block main %}
+<section>
+   
+        <div class="row">
+           
+                <center><h1>Governing Body / Executive Committee -2018-19</h1></center>
+                <hr>
+
+       <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>NAME</th>
+        <th>ADDRESS</th>
+        <th>POSTION</th>
+      </tr>
+    </thead>
+    <tbody>
+ {% for member in members %}
+
+      <tr>
+        <td>{{ member.name }}<br>{{ member.invigilation }}<br>{{ member.department }}<br>{{ member.organisation }}<br></td>
+        <td>{{ member.address }}</td>
+        <td>{{ member.position }}<br></td>
+      </tr>
+      
+    </tbody>
+         {% endfor %}
+  </table>
+</div>
+                
+        </div>
+</section>
+{% endblock %}

@@ -1,0 +1,92 @@
+from django.contrib import admin
+from ckeditor.widgets import CKEditorWidget
+from django import forms
+import csv
+from .models import Post, Comment,Reply,Student,districts,Member
+from django.http import HttpResponse
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    fields = ('title', 'tags','short_desc', 'body','img','status')
+    list_display = ('title', 'post_date','status')
+    list_filter = ('post_date','status',)
+    search_fields = ('title', 'body', 'short_desc')
+    date_hierarchy = 'post_date'
+
+@admin.register(Member)
+class MemberAdmin(admin.ModelAdmin):
+    actions=['download_csv']
+    fields = ('name', 'address','phone', 'district','position','status','email','department','invigilation','organisation')
+    list_display = ('name', 'address','phone','position','status')
+    list_filter = ('joined','status','position')
+    search_fields = ('name', 'phone', 'email')
+    def download_csv(self, request, queryset):
+        options = districts
+        mapper = {}
+        for i in districts:
+            mapper[i[0]] = i[1] 
+        f = open('mem.csv', 'w')
+        writer = csv.writer(f)
+        l = []
+        for i in (Member._meta.get_fields()):
+            l.append(i.name)
+        writer.writerow(l)
+        data = Member.objects.all().values_list()
+        for s in data:
+            s = list(s)
+            writer.writerow(s)
+        f.close()
+        f = open('mem.csv', 'r')
+        response = HttpResponse(f, content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename=Member.csv'
+        return response
+
+
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    fields = ('fk_post', 'comment', 'author')
+    list_display = ('comment', 'author', 'comment_date')
+    list_filter = ('comment_date',)
+    search_fields = ('comment', 'author')
+    date_hierarchy = 'comment_date'
+
+
+
+@admin.register(Reply)
+class ReplyAdmin(admin.ModelAdmin):
+    fields = ('fk_comment', 'reply', 'author')
+    list_display = ('reply', 'author', 'reply_date')
+    list_filter = ('reply_date',)
+    search_fields = ('reply', 'author')
+    date_hierarchy = 'reply_date'
+
+@admin.register(Student)   
+class StudentAdmin(admin.ModelAdmin):
+    actions = ['download_csv']
+    readonly_fields = ('joined',)
+    list_display = ('name', 'phone', 'email','organisation', 'joined')
+    list_filter = ('district', 'joined',)
+    def download_csv(self, request, queryset):
+        options = districts
+        mapper = {}
+        for i in districts:
+            mapper[i[0]] = i[1] 
+        f = open('stud.csv', 'w')
+        writer = csv.writer(f)
+        l = []
+        for i in (Student._meta.get_fields()):
+            l.append(i.name)
+        writer.writerow(l)
+        data = Student.objects.all().values_list()
+        for s in data:
+            s = list(s)
+            writer.writerow(s)
+        f.close()
+        f = open('stud.csv', 'r')
+        response = HttpResponse(f, content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename=Students.csv'
+        return response
+
