@@ -18,6 +18,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('links/',views.LinkListView.as_view(),name='links'),
     path('works/',views.WorkListView.as_view(),name='works'),
+    path('gallery/',views.GalleryListView.as_view(),name='gallery'),
 
 
 

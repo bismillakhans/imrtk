@@ -5,7 +5,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.edit import FormView
 from django.views.generic.base import TemplateView
 from .forms import CommentForm, ReplyForm
-from .models import Post, Comment, Reply,Student,Document,Member,Link,Work
+from .models import Post, Comment, Reply,Student,Document,Member,Link,Work,Gallery
 
 
 class BlogListView(ListView):
@@ -28,6 +28,13 @@ class DocumentListView(ListView):
     template_name = "blog/document.html"
     context_object_name = 'docs'
     queryset = Document.objects.filter(status=True)
+
+class GalleryListView(ListView):
+    model = Gallery
+    template_name = "blog/gallery.html"
+    context_object_name = 'galleries'
+    queryset = Gallery.objects.filter(status=True)
+    ordering = ['-g_date',]
 
 class LinkListView(ListView):
     model = Link

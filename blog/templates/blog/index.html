@@ -11,6 +11,7 @@ IMRT Blog
     <meta property="og:image:height" content="500">
     <meta property="og:title" content="imrt - kerala Web.">
     <meta property="og:description" content="Desenvolvimento Web com Django, SQL e Bootstrap.">
+
 {% endblock %}
 {% block main %}
 <section>
@@ -23,89 +24,120 @@ IMRT Blog
 
 
 
-            <div class="row">
-                <img src="{% static "images/b2.jpg" %}" class="img-fluid" alt="Responsive image" style="width: auto;">
 
-                    <h1>IMRT</h1>
-                    <hr>
-                    <p>
-                    <h4>The Institute of Mathematics Research and Training(IMRT) is aimed at encouraging and promoting
+<div class="blog-card spring-fever">
+  <div class="title-content">
+ <h1>  <img width="100" height="100" src="{% static "images/2.png" %}" alt="logo" >
+IMRT Kerala</h1>
+  </div>
+  <div class="card-info">
+    The Institute of Mathematics Research and Training(IMRT) is aimed at encouraging and promoting
 facilities for fundamental research in the various branches of mathematical sciences including pure math-
 ematics, applied mathematics, statistics, computer sciences, information technology, theoretical physics
-and other related sciences. IMRT also envisages</h4></p>
+and other related sciences.
+    <a href="{% url "blog:about" %}">Read More<span class="licon icon-arr icon-black"></span></a>
+  </div>
+  <div class="utility-info">
+    <ul class="utility-list">
+      <li><span class="licon icon-like"></span><a href="#">Everything Around Us is Numbers</a></li>
+     
+    </ul>
+  </div>
+  <div class="gradient-overlay"></div>
+
+</div>
+
+<br>
+<br><br>
+<br>
+<br><br><br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br><br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
 
 
-   <ol>
-    <li>
-    <p align="left">Organizing workshops in collaboration with colleges offering M.Sc. programme in Mathematics for
-improving mathematics education and orienting to research activities. developing the application of
-mathematical models to the study of problems in areas such as Economics, Engineering, Sociology,
-Demography, Biology, Medicine etc</p>
-    </li>
-    <li>
-     <p align="left">Conducting educational and training programmes including seminars, conferences, symposia, short
-term and long term courses for both teachers and students of schools, colleges and universities.</p>
-</li>
-    <li>
-          <p align="left">Undertaking contract research activities for governmental agencies, financial institutions, industrial
-enterprises, public and private agencies and promote publications of research papers, monographs,
-books, periodicals and other publications covering the various aspects of mathematical sciences
-and their applications.</p>
-</li>
-    <li>
-     <p align="left">Encouraging cooperation with universities, research and para-research organizations, governmental
-and other agencies in promoting and running programmes in mathematical sciences and their
-applications</p>
-</li>
-    <li>
-  <p align="left">Sponsoring research in all areas of mathematical sciences and their applications by academic and
-research institutes and individuals selected by the Institute and support such research financially
-and otherwise.</p>
-</li>
-</ol>
-<h2>Vision&Mission</h2>
-<hr>
-    <h4>Creating an international centre of excellence in mathematical sciences which will also act as a
-catalyst for the planned economic development of the Society which is a need of the time.
-The Management and control of the Institute shall be entrusted to the Governing Body and shall be
-carried out in accordance with the rules and bye-laws.</h4>
+
 <div class="row">
-  <div class="col-sm-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading">Governing Body</div>
-      <div class="panel-body">The Governing Body shall consist of the following.
-        <br>
-        <br>
-        <br>
-      <button data-toggle="collapse" data-target="#demo" class="btn btn-danger">Readmore</button>
-                 <div id="demo" class="collapse">
-                     <p>1. Chairman<br />2. Director<br />3. Two Associate Directors<br />4. Secretary<br />5. Joint secretary<br />6. Treasurer<br />7. Seven members duly elected by the General Body .</p>
-                 </div>
-    </div>
+  <div class="col-sm-12">
+
+  <div class="blog-card1">
+  <div class="photo photo1"><img width="500" height="500" src="{% static "images/2.png" %}" alt="logo" ></div>
+  <ul class="details">
+    <li class="author"><a href="#">John Doe</a></li>
+    <li class="date">Aug. 24, 2015</li>
+    <li class="tags">
+      <ul>
+        <li><a href="#">Learn</a></li>
+        <li><a href="#">Code</a></li>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="description">
+    <h1>Learning to Code</h1>
+    <h2>Opening a door to the future</h2>
+    <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+    <a href="#">Read More</a>
   </div>
 </div>
 
-  <div class="col-sm-6">
-    <div class="panel panel-primary">
-      <div class="panel-heading">Membership</div>
-      <div class="panel-body">The membership of the Institute shall not be restricted for sex, nationality, race, religion, caste or
-creed. The Institute shall have the following classes of members 
- <br>
-      <button data-toggle="collapse" data-target="#demo2" class="btn btn-danger">Readmore</button>
-                 <div id="demo2" class="collapse">
-<p>1. Honorary Members,<br />2. Life Members,<br />3. Associate Members</p>                 </div>
-                 </div>
-    </div>
-          </div>
-    </div>
-    <h2>Honorary Members</h2>
-<hr>
-    <h4>These shall be distinguished personalities invited by the Governing Body of
-the institute as honorary members.</h4>
 
-    
-            </div>
-      
+
+<div class="blog-card1 alt">
+  <div class="photo photo2"></div>
+  <ul class="details">
+    <li class="author"><a href="#">Jane Doe</a></li>
+    <li class="date">July. 15, 2015</li>
+    <li class="tags">
+      <ul>
+        <li><a href="#">Learn</a></li>
+        <li><a href="#">Code</a></li>
+        <li><a href="#">JavaScript</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="description">
+    <h1>Mastering the Language</h1>
+    <h2>Java is not the same as JavaScript</h2>
+    <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+
+ <div class="blog-card1">
+  <div class="photo photo1"></div>
+  <ul class="details">
+    <li class="author"><a href="#">John Doe</a></li>
+    <li class="date">Aug. 24, 2015</li>
+    <li class="tags">
+      <ul>
+        <li><a href="#">Learn</a></li>
+        <li><a href="#">Code</a></li>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="description">
+    <h1>Learning to Code</h1>
+    <h2>Opening a door to the future</h2>
+    <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+    <a href="#">Read More</a>
+  </div>
+</div>
+
+            
+      </div>
+    </div>
 
      
 </section>

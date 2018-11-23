@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <meta property="og:site_name" content="imartkerala">
+    <meta property="og:image" content="">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="500">
+    <meta property="og:image:height" content="500">
+    <meta property="og:title" content="about IMRT {{ query }}">
+{% endblock %}
+{% block main %}
+<section>
+    <div>
+        <div class="row">
+           
+            <div class="col-xl-7 col-lg-9 col-md-9 col-sm-12">
+                <center><h1>Gallery</h1></center>
+                <div class="container">
+                    
+                    {% for gal in galleries %}
+                    <img src="{{ gal.img.url }}"  class="img-rounded" width="304" height="236" alt="{{ gal.title }}">
+
+                         {% endfor %}
+                </div>
+                
+            </div>
+        </div>
+</section>
+{% endblock %}

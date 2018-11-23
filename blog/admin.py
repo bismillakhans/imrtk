@@ -2,7 +2,7 @@ from django.contrib import admin
 from ckeditor.widgets import CKEditorWidget
 from django import forms
 import csv
-from .models import Post, Comment,Reply,Student,districts,Member,Document,Link,Work
+from .models import Post, Comment,Reply,Student,districts,Member,Document,Link,Work,Gallery
 from django.http import HttpResponse
 
 
@@ -24,7 +24,13 @@ class DocumentAdmin(admin.ModelAdmin):
 class LinkAdmin(admin.ModelAdmin):
     fields = ('linkname', 'name','status')
     list_display = ('linkname','name','status')
-    list_filter = ('status',)   
+    list_filter = ('status',) 
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    fields = ('title', 'img','status')
+    list_display = ('title','img','status')
+    list_filter = ('status',) 
 
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):

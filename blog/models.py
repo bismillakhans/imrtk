@@ -155,3 +155,13 @@ class Member(models.Model):
     def __str__(self):
         return self.name    
 
+class Gallery(models.Model):
+    title = models.CharField(max_length=70)
+    img = models.ImageField(upload_to='gallery',default="download.jpeg")
+    status = models.BooleanField(default=True, verbose_name="Approve")
+    g_date=models.DateTimeField(auto_now_add=True)
+    
+    
+
+    def __str__(self):
+        return self.title
