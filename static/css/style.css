@@ -334,6 +334,10 @@ color:#fff;
 .blog-card1 .details .author:before {
   content: "\f007";
 }
+
+.blog-card1 .details .location:before {
+  content: "\f041";
+}
 .blog-card1 .details .date:before {
   content: "\f133";
 }

@@ -35,7 +35,7 @@ class GalleryAdmin(admin.ModelAdmin):
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
     fields = ('title', 'venue','status','district','sdate','info','wtype','fdate')
-    list_display = ('title','wtype','venue','status','info')
+    list_display = ('title','wtype','venue','status')
     list_filter = ('status',)
    
 

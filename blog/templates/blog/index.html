@@ -39,7 +39,7 @@ and other related sciences.
   </div>
   <div class="utility-info">
     <ul class="utility-list">
-      <li><span class="licon icon-like"></span><a href="#">Everything Around Us is Numbers</a></li>
+      <li><span class="licon icon-like"></span><a href="#">"Everything Around Us is Numbers"</a></li>
      
     </ul>
   </div>
@@ -66,30 +66,32 @@ and other related sciences.
 
 <div class="row">
   <div class="col-sm-12">
-
+{% for work in works %}
   <div class="blog-card1">
-  <div class="photo photo1"><img width="500" height="500" src="{% static "images/2.png" %}" alt="logo" ></div>
+  <div class="photo photo1"><img width="500" height="250" src="{% static "images/workshop.jpg" %}" alt="logo" ></div>
   <ul class="details">
-    <li class="author"><a href="#">John Doe</a></li>
-    <li class="date">Aug. 24, 2015</li>
+     <li class="location">{{ work.venue }}</li>
+    <li class="date">{{ work.sdate }}</li>
+    <li class="date">{{ work.fdate }}</li>
+
     <li class="tags">
       <ul>
-        <li><a href="#">Learn</a></li>
-        <li><a href="#">Code</a></li>
-        <li><a href="#">HTML</a></li>
-        <li><a href="#">CSS</a></li>
+        <li><a href="#">{{ work.wtype }}</a></li>
+       <li><a href="#">{{ work.district }}
+      </a></li>
       </ul>
     </li>
   </ul>
   <div class="description">
-    <h1>Learning to Code</h1>
+    <h1>{{ work.title }}</h1>
     <h2>Opening a door to the future</h2>
-    <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-    <a href="#">Read More</a>
+    <p class="summary">
+    {{ work.info }}</p>
+    <a href="{% url "blog:regstudent" %}">Register</a>
   </div>
 </div>
 
-
+{% endfor %}
 
 <div class="blog-card1 alt">
   <div class="photo photo2"></div>
@@ -113,27 +115,7 @@ and other related sciences.
 </div>
 
 
- <div class="blog-card1">
-  <div class="photo photo1"></div>
-  <ul class="details">
-    <li class="author"><a href="#">John Doe</a></li>
-    <li class="date">Aug. 24, 2015</li>
-    <li class="tags">
-      <ul>
-        <li><a href="#">Learn</a></li>
-        <li><a href="#">Code</a></li>
-        <li><a href="#">HTML</a></li>
-        <li><a href="#">CSS</a></li>
-      </ul>
-    </li>
-  </ul>
-  <div class="description">
-    <h1>Learning to Code</h1>
-    <h2>Opening a door to the future</h2>
-    <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-    <a href="#">Read More</a>
-  </div>
-</div>
+ 
 
             
       </div>

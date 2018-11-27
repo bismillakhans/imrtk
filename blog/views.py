@@ -46,6 +46,12 @@ class WorkListView(ListView):
     model = Work
     template_name = "blog/works.html"
     context_object_name = 'works'
+    
+
+class WorkMainListView(ListView):
+    model = Work
+    template_name = "blog/index.html"
+    context_object_name = 'works'
     queryset = Work.objects.filter(status=True)
     
 
