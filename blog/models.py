@@ -140,7 +140,7 @@ class Member(models.Model):
         choices = districts,
     )
     position = models.CharField(
-        max_length = 15,
+        max_length = 30,
         choices = positions,
     )
     invigilation=models.CharField(max_length=250, verbose_name="Invigilation ")
